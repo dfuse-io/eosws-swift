@@ -14,7 +14,7 @@ public struct ActionTrace: Decodable {
     public let transactionID: String
     public let actionIndex: Int
     public let actionDepth: Int
-    public let trace: [String:JSONValue]?
+    public let trace: [String:JSONValue]
     public let dbops: [String:JSONValue]?
     public let ramConsumed: [String:JSONValue]?
     public let deferredTransactions: [String:JSONValue]?
@@ -22,7 +22,8 @@ public struct ActionTrace: Decodable {
     enum CodingKeys: String, CodingKey {
         case blockNum = "block_num"
         case blockID = "block_id"
-        case trace, dbops
+        case trace
+        case dbops
         case transactionID = "trx_id"
         case actionIndex = "idx"
         case actionDepth = "depth"

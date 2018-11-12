@@ -19,11 +19,11 @@ class ViewController: UIViewController {
         
         if let eosws = try? EOSWS(forEnpoint: "wss://mainnet.eos.dfuse.io/v1/stream", token: token, origin: "origin.example.com"){
             
-            let getTableRowsRequest = GetTableRows(withAccount: "eosio", scope: "eosio", table: "global")
-            try? getTableRowsRequest.send(with: eosws, withRequestID: "abc", fetch: true, listen: true)
+//            let getTableRowsRequest = GetTableRows(withAccount: "eosio", scope: "eosio", table: "global")
+//            try? getTableRowsRequest.send(with: eosws, withRequestID: "abc", fetch: true, listen: true)
             
-//            let getActionTraces = GetActionTraces(account: "eosio.token", actionName: "transfer")
-//            try? getActionTraces.send(with: eosws, withRequestID: "abc")
+            let getActionTraces = GetActionTraces(withAccount: "eosio.token", actionName: "transfer")
+            try? getActionTraces.send(with: eosws, withRequestID: "abc")
             
 //            let getTrasactionLifeCycle = GetTransactionLifecycle(withTransactionID: "775ec1d06805cd80fb37ff790127d6946a8f20a395d3635693b1e49cb214eb97")
 //            try? getTrasactionLifeCycle.send(with: eosws, withRequestID: "abc")
