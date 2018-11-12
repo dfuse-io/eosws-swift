@@ -9,7 +9,7 @@
 import Foundation
 import SwiftWebSocket
 
-public class GetTableRows: Encodable{
+public class GetTableRows: Encodable {
     let code: String
     let scope: String
     let table: String
