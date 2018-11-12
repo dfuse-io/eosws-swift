@@ -9,14 +9,14 @@
 import Foundation
 
 public struct TableSnapshot: Decodable {
-    let rows : [TableSnapshotRow]
+    public let rows : [TableSnapshotRow]
 }
 
 public struct TableDelta: Decodable {
-    let blockNum: Int
-    let dbop: DBOp
-    var redo: Bool = false
-    var undo: Bool = false
+    public let blockNum: Int
+    public let dbop: DBOp
+    public var redo: Bool = false
+    public var undo: Bool = false
     
     enum CodingKeys: String, CodingKey {
         case blockNum = "block_num"
@@ -40,27 +40,27 @@ public struct TableDelta: Decodable {
 }
 
 public struct TableSnapshotRow: Decodable {
-    let key: String
-    let payer: String
-    let json: [String: JSONValue]?
-    let hex: String?
+    public let key: String
+    public let payer: String
+    public let json: [String: JSONValue]?
+    public let hex: String?
 }
 
 public struct Row: Decodable {
-    let payer: String
-    let json: [String: JSONValue]?
-    let hex: String?
+    public let payer: String
+    public let json: [String: JSONValue]?
+    public let hex: String?
 }
 
 public struct DBOp: Decodable  {
-    let op: String
-    let actionIndex: Int
-    let account: String
-    let table: String
-    let scope: String
-    let key: String
-    let oldRow: Row?
-    let newRow: Row
+    public let op: String
+    public let actionIndex: Int
+    public let account: String
+    public let table: String
+    public let scope: String
+    public let key: String
+    public let oldRow: Row?
+    public let newRow: Row
     
     enum CodingKeys: String, CodingKey {
         case op, account, table, scope, key

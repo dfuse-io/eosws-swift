@@ -8,10 +8,19 @@
 
 import Foundation
 
+public enum MessageData {
+    case tableSnapshot(TableSnapshot)
+    case tableDetla(TableDelta)
+    case actionTrace(ActionTrace)
+    case transactionLifecycle(TransactionLifecycle)
+    case listening(Listening)
+    case error(ErrorMessage)
+}
+
 public struct IncomingMessage: Decodable {
     let type : String
     var requestID : String?
-    var data: Any? // this should not be optional
+    var data: MessageData?
 
     enum CodingKeys: String, CodingKey {
         case type, data
@@ -28,17 +37,23 @@ public struct IncomingMessage: Decodable {
         case "ping":
             print("Ping!")
         case "table_snapshot":
-            self.data = try container.decode(TableSnapshot.self, forKey: .data)
+            let data = try container.decode(TableSnapshot.self, forKey: .data)
+            self.data = MessageData.tableSnapshot(data)
         case "table_delta":
-            self.data = try container.decode(TableDelta.self, forKey: .data)
+            let data = try container.decode(TableDelta.self, forKey: .data)
+            self.data = MessageData.tableDetla(data)
         case "action_trace":
-            self.data = try container.decode(ActionTrace.self, forKey: .data)
+            let data = try container.decode(ActionTrace.self, forKey: .data)
+            self.data = MessageData.actionTrace(data)
         case "transaction_lifecycle":
-            self.data = try container.decode(TransactionLifecycle.self, forKey: .data)
+            let data = try container.decode(TransactionLifecycle.self, forKey: .data)
+            self.data = MessageData.transactionLifecycle(data)
         case "listening":
-            self.data = try container.decode(Listening.self, forKey: .data)
+            let data = try container.decode(Listening.self, forKey: .data)
+            self.data = MessageData.listening(data)
         case "error":
-            self.data = try container.decode(ErrorMessage.self, forKey: .data)
+            let data = try container.decode(ErrorMessage.self, forKey: .data)
+            self.data = MessageData.error(data)
         default:
             print("Warning: unknown incoming message [\(self.type)]")
         }

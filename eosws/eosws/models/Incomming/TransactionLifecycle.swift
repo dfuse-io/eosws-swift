@@ -11,5 +11,5 @@ import Foundation
 import Foundation
 
 public struct TransactionLifecycle: Decodable {
-    let lifecycle: JSONValue
+    public let lifecycle: JSONValue
 }

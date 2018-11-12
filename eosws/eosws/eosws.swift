@@ -18,6 +18,8 @@ public class EOSWS{
     let origin: String
     let ws: WebSocket
     
+    public var delegate : EOSWSDelegate?
+    
     public init(forEnpoint endpoint: String, token: String, origin: String) throws {
         self.endpoint = endpoint
         self.token = token
@@ -49,8 +51,12 @@ public class EOSWS{
 
                 if let data = text.data(using: String.Encoding.utf8) {
                     do {
-                        let response = try JSONDecoder().decode(IncomingMessage.self, from: data)
-                        print("response: \(response)")
+                        let message = try JSONDecoder().decode(IncomingMessage.self, from: data)
+                        if let delegate = self.delegate {
+                            if let messageData = message.data {
+                                delegate.messageReveiced(msgData: messageData)
+                            }
+                        }
                     } catch {
                         //todo send error to delegate?
                         print("JSON decode error: \(error)")
@@ -58,7 +64,6 @@ public class EOSWS{
                     
                     return
                 }
-                //todo: error
             }
         }
     }
@@ -69,6 +74,8 @@ public class EOSWS{
     }
 }
 
-protocol EOSWSDelegate {
+public protocol EOSWSDelegate {
+    
+    func messageReveiced(msgData: MessageData)
     
 }

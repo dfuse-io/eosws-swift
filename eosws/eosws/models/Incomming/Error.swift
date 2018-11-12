@@ -9,7 +9,7 @@
 import Foundation
 
 public struct ErrorMessage: Decodable {
-    let code: String
-    let message: String
-    let details: JSONValue
+    public let code: String
+    public let message: String
+    public let details: JSONValue
 }

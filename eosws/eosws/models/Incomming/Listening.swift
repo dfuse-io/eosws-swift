@@ -9,7 +9,7 @@
 import Foundation
 
 public struct Listening: Decodable {
-    let nextBlock: Int
+    public let nextBlock: Int
     
     enum CodingKeys: String, CodingKey {
         case nextBlock = "next_block"

@@ -9,15 +9,15 @@
 import Foundation
 
 public struct ActionTrace: Decodable {
-    let blockNum: Int
-    let blockID: String
-    let transactionID: String
-    let actionIndex: Int
-    let actionDepth: Int
-    let trace: [String:JSONValue]?
-    let dbops: [String:JSONValue]?
-    let ramConsumed: [String:JSONValue]?
-    let deferredTransactions: [String:JSONValue]?
+    public let blockNum: Int
+    public let blockID: String
+    public let transactionID: String
+    public let actionIndex: Int
+    public let actionDepth: Int
+    public let trace: [String:JSONValue]?
+    public let dbops: [String:JSONValue]?
+    public let ramConsumed: [String:JSONValue]?
+    public let deferredTransactions: [String:JSONValue]?
     
     enum CodingKeys: String, CodingKey {
         case blockNum = "block_num"
