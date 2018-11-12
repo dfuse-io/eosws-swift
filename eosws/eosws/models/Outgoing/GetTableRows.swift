@@ -13,17 +13,18 @@ public class GetTableRows: Encodable{
     let code: String
     let scope: String
     let table: String
-    let json: Bool = true
+    let json: Bool
     var request: OutgoingMessage!
     
     enum CodingKeys: String, CodingKey {
         case code, scope, table, json, data
     }
     
-    public init(withAccount account: String, scope: String, table: String) {
+    public init(withAccount account: String, scope: String, table: String, json: Bool = true) {
         self.code = account
         self.scope = scope
         self.table = table
+        self.json = json
     }
     
     public func send(with eosws: EOSWS, withRequestID id: String, fetch:Bool = true, listen:Bool) throws {
@@ -46,5 +47,6 @@ public class GetTableRows: Encodable{
         try data.encode(self.code, forKey: .code)
         try data.encode(self.scope, forKey: .scope)
         try data.encode(self.table, forKey: .table)
+        try data.encode(self.json, forKey: .json)
     }
 }

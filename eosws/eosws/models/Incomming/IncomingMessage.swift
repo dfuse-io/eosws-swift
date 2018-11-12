@@ -29,6 +29,8 @@ public struct IncomingMessage: Decodable {
             print("Ping!")
         case "table_snapshot":
             self.data = try container.decode(TableSnapshot.self, forKey: .data)
+        case "table_delta":
+            self.data = try container.decode(TableDelta.self, forKey: .data)
         case "action_trace":
             print("action_trace")
             self.data = try container.decode(ActionTrace.self, forKey: .data)
@@ -40,7 +42,5 @@ public struct IncomingMessage: Decodable {
         default:
             print("Warning: unknown incoming message [\(self.type)]")
         }
-        //todo: switch on type and init model with decoder
-//        let sdataContainer = container.nestedUnkeyedContainer(forKey: .data)
     }
 }
