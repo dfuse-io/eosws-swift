@@ -11,7 +11,7 @@ import Foundation
 public struct IncomingMessage: Decodable {
     let type : String
     var requestID : String?
-    var data: Any?
+    var data: Any? // this should not be optional
 
     enum CodingKeys: String, CodingKey {
         case type, data
@@ -32,13 +32,13 @@ public struct IncomingMessage: Decodable {
         case "table_delta":
             self.data = try container.decode(TableDelta.self, forKey: .data)
         case "action_trace":
-            print("action_trace")
             self.data = try container.decode(ActionTrace.self, forKey: .data)
         case "transaction_lifecycle":
-            print("transaction_lifecycle")
             self.data = try container.decode(TransactionLifecycle.self, forKey: .data)
         case "listening":
-            print("listening")
+            self.data = try container.decode(Listening.self, forKey: .data)
+        case "error":
+            self.data = try container.decode(ErrorMessage.self, forKey: .data)
         default:
             print("Warning: unknown incoming message [\(self.type)]")
         }
