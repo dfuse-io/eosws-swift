@@ -25,7 +25,7 @@ public class GetActionTraces: Encodable{
     }
     
     public init(
-        account: String,
+        withAccount account: String,
         actionName: String,
         withInlineTraces: Bool = true,
         withDTRXOps: Bool = true,

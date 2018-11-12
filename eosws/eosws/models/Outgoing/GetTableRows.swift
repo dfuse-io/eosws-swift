@@ -20,13 +20,13 @@ public class GetTableRows: Encodable{
         case code, scope, table, json, data
     }
     
-    public init(account: String, scope: String, table: String) {
+    public init(withAccount account: String, scope: String, table: String) {
         self.code = account
         self.scope = scope
         self.table = table
     }
     
-    public func send(with eosws: EOSWS, withRequestID id: String, fetch:Bool, listen:Bool) throws {
+    public func send(with eosws: EOSWS, withRequestID id: String, fetch:Bool = true, listen:Bool) throws {
         self.request = OutgoingMessage(withType: "get_table_rows")
         self.request.requestID = id
         self.request.fetch = fetch

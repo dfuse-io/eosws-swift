@@ -32,6 +32,9 @@ public struct IncomingMessage: Decodable {
         case "action_trace":
             print("action_trace")
             self.data = try container.decode(ActionTrace.self, forKey: .data)
+        case "transaction_lifecycle":
+            print("transaction_lifecycle")
+            self.data = try container.decode(TransactionLifecycle.self, forKey: .data)
         case "listening":
             print("listening")
         default:
