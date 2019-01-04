@@ -37,4 +37,23 @@ public enum JSONValue: Decodable {
             throw DecodingError.typeMismatch(JSONValue.self, DecodingError.Context(codingPath: container.codingPath, debugDescription: "Not a JSON"))
         }
     }
+    
+    public func value<ValueType>() throws -> ValueType {
+        print("value:ValueType =s \(ValueType.self)")
+        switch self {
+        case .string(let value): return (value as! ValueType)
+        case .double(let v) where ValueType.self == Swift.Double.self: return (v as! ValueType)
+        case .int(let value): return (value as! ValueType)
+        case .bool(let value): return (value as! ValueType)
+        case .array(let value): return (value as! ValueType)
+        case .object(let value): return (value as! ValueType)
+        case .null: throw JSONValueError.noValue
+        default: throw JSONValueError.typeMismatch
+        }
+    }
+    
+    public enum JSONValueError: Error {
+        case typeMismatch
+        case noValue
+    }
 }

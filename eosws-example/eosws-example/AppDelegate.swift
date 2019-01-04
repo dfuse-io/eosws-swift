@@ -7,15 +7,23 @@
 //
 
 import UIKit
+import eosws
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    
+        let token = "eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDQwMzEzMDksImp0aSI6IjkwM2E4YjI0LWIxMzEtNGQ1YS04ZjVjLWExOThhNTg2NjdjMSIsImlhdCI6MTU0MTQzOTMwOSwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJDaVFBNmNieWV4eDZJSG9Pd01xNkFXaTQ0amdJQTRvR0hET0RvNWJTYm9yL0RMUG1GM1lTT1FBL0NMUnRVZi8xdnhLc1pmTGpmeU9pamdtSzhlV2RoU0pRUXA4N09EamFQdVEyK2M5MTV4RjRidFkyUEZXODZ0VW9aU3lvODdyem13PT0iLCJ0aWVyIjoiY3VzdC12MSIsInNjb3BlcyI6IioiLCJzdGJsayI6MSwidiI6MX0.pNPxqeiN86MCGx4PgHKrDDhDXK_0N14Ja1kwciyrV7qNkHiAtwECIv9JjXH7NOAvOYP_u2S49EFV9dT-fYTsrw"
+        
+        guard let eosws = try? EOSWS(forEnpoint: "wss://mainnet.eos.dfuse.io/v1/stream", token: token, origin: "origin.example.com") else{
+            print("Error: failed to init EOSWS")
+            return false
+        }
+        
+        Context.shared.eosws = eosws
         return true
     }
 

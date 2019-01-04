@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63AD0E58219A3E760091A676 /* Context.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD0E57219A3E760091A676 /* Context.swift */; };
 		63C7ECFF219604C20027E7B0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECFE219604C20027E7B0 /* AppDelegate.swift */; };
-		63C7ED01219604C20027E7B0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ED00219604C20027E7B0 /* ViewController.swift */; };
+		63C7ED01219604C20027E7B0 /* ProducersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ED00219604C20027E7B0 /* ProducersController.swift */; };
 		63C7ED04219604C20027E7B0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C7ED02219604C20027E7B0 /* Main.storyboard */; };
 		63C7ED06219604C30027E7B0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63C7ED05219604C30027E7B0 /* Assets.xcassets */; };
 		63C7ED09219604C30027E7B0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 63C7ED07219604C30027E7B0 /* LaunchScreen.storyboard */; };
@@ -63,9 +64,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		63AD0E57219A3E760091A676 /* Context.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Context.swift; sourceTree = "<group>"; };
 		63C7ECFB219604C20027E7B0 /* eosws-example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "eosws-example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C7ECFE219604C20027E7B0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		63C7ED00219604C20027E7B0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		63C7ED00219604C20027E7B0 /* ProducersController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProducersController.swift; sourceTree = "<group>"; };
 		63C7ED03219604C20027E7B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		63C7ED05219604C30027E7B0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		63C7ED08219604C30027E7B0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -120,11 +122,12 @@
 			isa = PBXGroup;
 			children = (
 				63C7ECFE219604C20027E7B0 /* AppDelegate.swift */,
-				63C7ED00219604C20027E7B0 /* ViewController.swift */,
+				63C7ED00219604C20027E7B0 /* ProducersController.swift */,
 				63C7ED02219604C20027E7B0 /* Main.storyboard */,
 				63C7ED05219604C30027E7B0 /* Assets.xcassets */,
 				63C7ED07219604C30027E7B0 /* LaunchScreen.storyboard */,
 				63C7ED0A219604C30027E7B0 /* Info.plist */,
+				63AD0E57219A3E760091A676 /* Context.swift */,
 			);
 			path = "eosws-example";
 			sourceTree = "<group>";
@@ -204,7 +207,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
-				ORGANIZATIONNAME = "dfuse";
+				ORGANIZATIONNAME = dfuse;
 				TargetAttributes = {
 					63C7ECFA219604C20027E7B0 = {
 						CreatedOnToolsVersion = 10.1;
@@ -282,7 +285,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C7ED01219604C20027E7B0 /* ViewController.swift in Sources */,
+				63AD0E58219A3E760091A676 /* Context.swift in Sources */,
+				63C7ED01219604C20027E7B0 /* ProducersController.swift in Sources */,
 				63C7ECFF219604C20027E7B0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

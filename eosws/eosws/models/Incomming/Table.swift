@@ -9,7 +9,7 @@
 import Foundation
 
 public struct TableSnapshot: Decodable {
-    public let rows : [TableSnapshotRow]
+    public let rows : Array<TableSnapshotRow>
 }
 
 public struct TableDelta: Decodable {

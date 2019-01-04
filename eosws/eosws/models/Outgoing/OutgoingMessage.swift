@@ -21,5 +21,3 @@ public class OutgoingMessage: Codable {
         self.type = type
     }
 }
-
-//todo: implement unlisten

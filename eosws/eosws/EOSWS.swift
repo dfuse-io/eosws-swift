@@ -40,15 +40,15 @@ public class EOSWS{
             print("opened")
         }
         ws.event.close = { code, reason, clean in
-            print("close")
+            print("connection close")
         }
         ws.event.error = { error in
             print("error \(error)")
+            //todo: notify delegate
         }
         ws.event.message = { message in
             if let text = message as? String {
-                print("Received text: \(text)" )
-
+//                print("eosws: Received message: \(text)")
                 if let data = text.data(using: String.Encoding.utf8) {
                     do {
                         let message = try JSONDecoder().decode(IncomingMessage.self, from: data)
@@ -69,8 +69,13 @@ public class EOSWS{
     }
     
     public func send(json: String) {
-        print("Sending json: \(json)")
+        print("eosws: Sending json: \(json)")
         ws.send(json)
+    }
+    
+    public func close() {
+        print("eosws: Closing connection")
+        ws.close()
     }
 }
 

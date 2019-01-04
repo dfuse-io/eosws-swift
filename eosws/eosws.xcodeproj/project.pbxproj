@@ -11,6 +11,14 @@
 		6358EFFB2199A7BD0076BF47 /* Table.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6358EFFA2199A7BD0076BF47 /* Table.swift */; };
 		637E71F82199A8D30042F4A8 /* ActionTrace.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E71F72199A8D30042F4A8 /* ActionTrace.swift */; };
 		637E71FA2199AC770042F4A8 /* json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 637E71F92199AC770042F4A8 /* json.swift */; };
+		639F122A21DCE61B008D5F78 /* GetPrice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F122921DCE61B008D5F78 /* GetPrice.swift */; };
+		639F122C21DCE73A008D5F78 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F122B21DCE73A008D5F78 /* Price.swift */; };
+		639F123421DD017C008D5F78 /* GetChainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F123321DD017C008D5F78 /* GetChainInfo.swift */; };
+		639F123621DD040F008D5F78 /* ChainInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F123521DD040F008D5F78 /* ChainInfo.swift */; };
+		639F123F21DD1AE3008D5F78 /* GetAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F123E21DD1AE3008D5F78 /* GetAccount.swift */; };
+		639F124121DD1C35008D5F78 /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F124021DD1C35008D5F78 /* Account.swift */; };
+		639F124521DD53EE008D5F78 /* GetVoteTally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F124421DD53EE008D5F78 /* GetVoteTally.swift */; };
+		639F124721DD5475008D5F78 /* VoteTally.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639F124621DD5475008D5F78 /* VoteTally.swift */; };
 		63AD0E4B2199B8DD0091A676 /* GetTransactionLifecyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD0E4A2199B8DD0091A676 /* GetTransactionLifecyle.swift */; };
 		63AD0E4D2199B9F60091A676 /* TransactionLifecycle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD0E4C2199B9F60091A676 /* TransactionLifecycle.swift */; };
 		63AD0E4F2199CD260091A676 /* Error.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63AD0E4E2199CD260091A676 /* Error.swift */; };
@@ -19,8 +27,8 @@
 		63C7ECDB219603560027E7B0 /* eosws.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7ECD1219603560027E7B0 /* eosws.framework */; };
 		63C7ECE0219603560027E7B0 /* eoswsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECDF219603560027E7B0 /* eoswsTests.swift */; };
 		63C7ECE2219603560027E7B0 /* eosws.h in Headers */ = {isa = PBXBuildFile; fileRef = 63C7ECD4219603560027E7B0 /* eosws.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		63C7ECEE219603D80027E7B0 /* eosws.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECED219603D80027E7B0 /* eosws.swift */; };
-		63C7ECEF2196040F0027E7B0 /* eosws.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECED219603D80027E7B0 /* eosws.swift */; };
+		63C7ECEE219603D80027E7B0 /* EOSWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECED219603D80027E7B0 /* EOSWS.swift */; };
+		63C7ECEF2196040F0027E7B0 /* EOSWS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ECED219603D80027E7B0 /* EOSWS.swift */; };
 		63C7ED36219610180027E7B0 /* SwiftWebSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63C7ED35219610180027E7B0 /* SwiftWebSocket.framework */; };
 		63C7ED39219612D80027E7B0 /* OutgoingMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ED38219612D80027E7B0 /* OutgoingMessage.swift */; };
 		63C7ED3B219642C30027E7B0 /* GetTableRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63C7ED3A219642C30027E7B0 /* GetTableRows.swift */; };
@@ -43,6 +51,14 @@
 		6358EFFA2199A7BD0076BF47 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
 		637E71F72199A8D30042F4A8 /* ActionTrace.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActionTrace.swift; sourceTree = "<group>"; };
 		637E71F92199AC770042F4A8 /* json.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = json.swift; sourceTree = "<group>"; };
+		639F122921DCE61B008D5F78 /* GetPrice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetPrice.swift; sourceTree = "<group>"; };
+		639F122B21DCE73A008D5F78 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		639F123321DD017C008D5F78 /* GetChainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetChainInfo.swift; sourceTree = "<group>"; };
+		639F123521DD040F008D5F78 /* ChainInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainInfo.swift; sourceTree = "<group>"; };
+		639F123E21DD1AE3008D5F78 /* GetAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccount.swift; sourceTree = "<group>"; };
+		639F124021DD1C35008D5F78 /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		639F124421DD53EE008D5F78 /* GetVoteTally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetVoteTally.swift; sourceTree = "<group>"; };
+		639F124621DD5475008D5F78 /* VoteTally.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoteTally.swift; sourceTree = "<group>"; };
 		63AD0E4A2199B8DD0091A676 /* GetTransactionLifecyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetTransactionLifecyle.swift; sourceTree = "<group>"; };
 		63AD0E4C2199B9F60091A676 /* TransactionLifecycle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionLifecycle.swift; sourceTree = "<group>"; };
 		63AD0E4E2199CD260091A676 /* Error.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Error.swift; sourceTree = "<group>"; };
@@ -54,7 +70,7 @@
 		63C7ECDA219603560027E7B0 /* eoswsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = eoswsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		63C7ECDF219603560027E7B0 /* eoswsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eoswsTests.swift; sourceTree = "<group>"; };
 		63C7ECE1219603560027E7B0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		63C7ECED219603D80027E7B0 /* eosws.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = eosws.swift; sourceTree = "<group>"; };
+		63C7ECED219603D80027E7B0 /* EOSWS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EOSWS.swift; sourceTree = "<group>"; };
 		63C7ED2C219606820027E7B0 /* Starscream.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Starscream.framework; path = "/Users/cbillett/devel/dfuse/swift/eosws-example/Carthage/Build/iOS/Starscream.framework"; sourceTree = "<absolute>"; };
 		63C7ED35219610180027E7B0 /* SwiftWebSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftWebSocket.framework; path = "/Users/cbillett/devel/dfuse/swift/eosws-example/Carthage/Build/iOS/SwiftWebSocket.framework"; sourceTree = "<absolute>"; };
 		63C7ED38219612D80027E7B0 /* OutgoingMessage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OutgoingMessage.swift; sourceTree = "<group>"; };
@@ -107,7 +123,7 @@
 				63C7ED37219612C00027E7B0 /* models */,
 				63C7ECD4219603560027E7B0 /* eosws.h */,
 				63C7ECD5219603560027E7B0 /* Info.plist */,
-				63C7ECED219603D80027E7B0 /* eosws.swift */,
+				63C7ECED219603D80027E7B0 /* EOSWS.swift */,
 			);
 			path = eosws;
 			sourceTree = "<group>";
@@ -148,6 +164,10 @@
 				6358EFF72199A4E80076BF47 /* GetActionTraces.swift */,
 				63AD0E4A2199B8DD0091A676 /* GetTransactionLifecyle.swift */,
 				63AD0E522199DAFC0091A676 /* Unlisten.swift */,
+				639F122921DCE61B008D5F78 /* GetPrice.swift */,
+				639F123321DD017C008D5F78 /* GetChainInfo.swift */,
+				639F123E21DD1AE3008D5F78 /* GetAccount.swift */,
+				639F124421DD53EE008D5F78 /* GetVoteTally.swift */,
 			);
 			path = Outgoing;
 			sourceTree = "<group>";
@@ -161,6 +181,10 @@
 				63AD0E4C2199B9F60091A676 /* TransactionLifecycle.swift */,
 				63AD0E4E2199CD260091A676 /* Error.swift */,
 				63AD0E502199CF4B0091A676 /* Listening.swift */,
+				639F122B21DCE73A008D5F78 /* Price.swift */,
+				639F123521DD040F008D5F78 /* ChainInfo.swift */,
+				639F124021DD1C35008D5F78 /* Account.swift */,
+				639F124621DD5475008D5F78 /* VoteTally.swift */,
 			);
 			path = Incomming;
 			sourceTree = "<group>";
@@ -275,17 +299,25 @@
 			buildActionMask = 2147483647;
 			files = (
 				63AD0E4B2199B8DD0091A676 /* GetTransactionLifecyle.swift in Sources */,
+				639F124721DD5475008D5F78 /* VoteTally.swift in Sources */,
 				6358EFFB2199A7BD0076BF47 /* Table.swift in Sources */,
+				639F123F21DD1AE3008D5F78 /* GetAccount.swift in Sources */,
 				6358EFF82199A4E80076BF47 /* GetActionTraces.swift in Sources */,
 				63AD0E4F2199CD260091A676 /* Error.swift in Sources */,
 				63AD0E4D2199B9F60091A676 /* TransactionLifecycle.swift in Sources */,
+				639F123621DD040F008D5F78 /* ChainInfo.swift in Sources */,
 				63C7ED3F219643420027E7B0 /* IncomingMessage.swift in Sources */,
 				63AD0E532199DAFC0091A676 /* Unlisten.swift in Sources */,
+				639F124521DD53EE008D5F78 /* GetVoteTally.swift in Sources */,
 				63C7ED3B219642C30027E7B0 /* GetTableRows.swift in Sources */,
-				63C7ECEE219603D80027E7B0 /* eosws.swift in Sources */,
+				639F122C21DCE73A008D5F78 /* Price.swift in Sources */,
+				639F123421DD017C008D5F78 /* GetChainInfo.swift in Sources */,
+				63C7ECEE219603D80027E7B0 /* EOSWS.swift in Sources */,
+				639F122A21DCE61B008D5F78 /* GetPrice.swift in Sources */,
 				63C7ED39219612D80027E7B0 /* OutgoingMessage.swift in Sources */,
 				637E71F82199A8D30042F4A8 /* ActionTrace.swift in Sources */,
 				637E71FA2199AC770042F4A8 /* json.swift in Sources */,
+				639F124121DD1C35008D5F78 /* Account.swift in Sources */,
 				63AD0E512199CF4B0091A676 /* Listening.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -296,7 +328,7 @@
 			files = (
 				63C7ED4021965CBA0027E7B0 /* OutgoingMessage.swift in Sources */,
 				63C7ECE0219603560027E7B0 /* eoswsTests.swift in Sources */,
-				63C7ECEF2196040F0027E7B0 /* eosws.swift in Sources */,
+				63C7ECEF2196040F0027E7B0 /* EOSWS.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

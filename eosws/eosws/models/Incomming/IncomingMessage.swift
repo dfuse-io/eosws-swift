@@ -14,6 +14,10 @@ public enum MessageData {
     case actionTrace(ActionTrace)
     case transactionLifecycle(TransactionLifecycle)
     case listening(Listening)
+    case price(Price)
+    case chainInfo(ChainInfo)
+    case account(Account)
+    case voteTally(VoteTally)
     case error(ErrorMessage)
 }
 
@@ -51,6 +55,24 @@ public struct IncomingMessage: Decodable {
         case "listening":
             let data = try container.decode(Listening.self, forKey: .data)
             self.data = MessageData.listening(data)
+        case "price":
+            let data = try container.decode(Price.self, forKey: .data)
+            self.data = MessageData.price(data)
+        case "head_info":
+            let data = try container.decode(ChainInfo.self, forKey: .data)
+            self.data = MessageData.chainInfo(data)
+        case "account":
+            let data = try container.decode(Account.self, forKey: .data)
+            self.data = MessageData.account(data)
+        case "vote_tally":
+            
+            let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+            enum CodingKeys: String, CodingKey {
+                case voteTally = "vote_tally"
+            }
+            let data = try nested.decode(VoteTally.self, forKey: CodingKeys.voteTally)
+            self.data = MessageData.voteTally(data)
+
         case "error":
             let data = try container.decode(ErrorMessage.self, forKey: .data)
             self.data = MessageData.error(data)

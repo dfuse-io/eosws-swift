@@ -27,7 +27,7 @@ public class GetTableRows: Encodable {
         self.json = json
     }
     
-    public func send(with eosws: EOSWS, withRequestID id: String, fetch:Bool = true, listen:Bool) throws {
+    public func send(with eosws: EOSWS, withRequestID id: String, fetch:Bool = true, listen:Bool=true) throws {
         self.request = OutgoingMessage(withType: "get_table_rows")
         self.request.requestID = id
         self.request.fetch = fetch
