@@ -15,28 +15,14 @@ public struct TableSnapshot: Decodable {
 public struct TableDelta: Decodable {
     public let blockNum: Int
     public let dbop: DBOp
-    public var redo: Bool = false
-    public var undo: Bool = false
+    public var redo: Bool? = false
+    public var undo: Bool? = false
     
     enum CodingKeys: String, CodingKey {
         case blockNum = "block_num"
         case dbop = "dbop"
         case redo, undo
     }
-    
-    public init(from decoder: Decoder) throws {
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        
-        self.blockNum = try container.decode(Int.self, forKey: .blockNum)
-        self.dbop = try container.decode(DBOp.self, forKey: .dbop)
-        if let redo = try container.decodeIfPresent(Bool.self, forKey: .redo){
-            self.redo = redo
-        }
-        if let undo = try container.decodeIfPresent(Bool.self, forKey: .undo){
-            self.undo = undo
-        }
-    }
-    
 }
 
 public struct TableSnapshotRow: Decodable {

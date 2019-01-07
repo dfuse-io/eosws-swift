@@ -22,7 +22,7 @@ class eoswsTests: XCTestCase {
     func testExample() {
         let expectation = self.expectation(description: #function)
         
-        let token = "eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NDQwMzEzMDksImp0aSI6IjkwM2E4YjI0LWIxMzEtNGQ1YS04ZjVjLWExOThhNTg2NjdjMSIsImlhdCI6MTU0MTQzOTMwOSwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJDaVFBNmNieWV4eDZJSG9Pd01xNkFXaTQ0amdJQTRvR0hET0RvNWJTYm9yL0RMUG1GM1lTT1FBL0NMUnRVZi8xdnhLc1pmTGpmeU9pamdtSzhlV2RoU0pRUXA4N09EamFQdVEyK2M5MTV4RjRidFkyUEZXODZ0VW9aU3lvODdyem13PT0iLCJ0aWVyIjoiY3VzdC12MSIsInNjb3BlcyI6IioiLCJzdGJsayI6MSwidiI6MX0.pNPxqeiN86MCGx4PgHKrDDhDXK_0N14Ja1kwciyrV7qNkHiAtwECIv9JjXH7NOAvOYP_u2S49EFV9dT-fYTsrw"
+        let token = "eyJhbGciOiJLTVNFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE1NTIxMDkyMjAsImp0aSI6Ijc1NWViYmI4LTZhMTktNDBjZi1hMjlhLTU3MTY4MjRjOTM3ZSIsImlhdCI6MTU0NDEwOTIyMCwiaXNzIjoiZGZ1c2UuaW8iLCJzdWIiOiJDaVFBNmNieWU4WkZaWFIrVmJ3YkVVbFNsa0pHQXExTHFHWlZSUzh5ZFhwVmplOFIyVzRTT1FBL0NMUnRFU1hrS05vdzJsS3ZSR3NHQ1NTMnlHRmJidFRlY3lhOE54V3c4aksvUVdWYXMwNGJJbU5GY2IvNVI1VnRRNUdXeGIxd2NBPT0iLCJ0aWVyIjoiYmV0YS12MSIsInN0YmxrIjoxLCJ2IjoxfQ._VoD77DeMGqPb0FQWzEieP5wsF7fhP3hUYo0qxoW5U7MXDS9sG8hai_FGXUE81gGj1ofW97-6z1blVvQHs29YQ"
         let eosws = try? EOSWS(forEnpoint: "wss://staging-kylin.eos.dfuse.io/v1/stream", token: token, origin: "origin.example.com")
         
         waitForExpectations(timeout: 10)

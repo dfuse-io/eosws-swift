@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public struct GetPrice: Encodable {
     var request: OutgoingMessage!

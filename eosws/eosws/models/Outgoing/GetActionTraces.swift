@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public class GetActionTraces: Encodable{
     let account: String

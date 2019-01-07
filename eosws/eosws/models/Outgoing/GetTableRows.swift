@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public class GetTableRows: Encodable {
     let code: String

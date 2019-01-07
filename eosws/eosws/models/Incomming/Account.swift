@@ -35,7 +35,6 @@ public struct Account: Decodable {
 
     
     enum CodingKeys: String, CodingKey {
-        case account
         case name = "account_name"
         case privileged = "privileged"
         case lastCodeUpdateTime = "last_code_update"
@@ -58,34 +57,35 @@ public struct Account: Decodable {
         case voterInfo = "voter_info"
     }
     
-    public init(from decoder: Decoder) throws {
-        
-        let container = try decoder.container(keyedBy: CodingKeys.self)
-        let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .account)
-        
-        self.name = try nested.decode(String.self, forKey: .name)
-        self.privileged = try nested.decode(Bool.self, forKey: .privileged)
-        self.lastCodeUpdateTime = try nested.decode(String.self, forKey: .lastCodeUpdateTime)
-        self.creationTime = try nested.decode(String.self, forKey: .creationTime)
-        self.coreLiquidBalance = try nested.decode(String.self, forKey: .coreLiquidBalance)
-        
-        self.ramQuota = try nested.decode(Int.self, forKey: .ramQuota)
-        self.ramUsage = try nested.decode(Int.self, forKey: .ramUsage)
-        
-        self.netWeight = try nested.decode(Int.self, forKey: .netWeight)
-        self.cpuWeight = try nested.decode(Int.self, forKey: .cpuWeight)
-
-        self.netLimit = try nested.decode(AccountResourceLimit.self, forKey: .netLimit)
-        self.cpuLimit = try nested.decode(AccountResourceLimit.self, forKey: .cpuLimit)
-        
-        self.permissions = try nested.decode([Permission].self, forKey: .permissions)
-        
-        self.totalResources = try nested.decode(TotalResources.self, forKey: .totalResources)
-        
-        self.selfDelegatedBandwidth = try nested.decode(DelegatedBandwidth.self, forKey: .selfDelegatedBandwidth)
-        self.refundRequest = try nested.decodeIfPresent(RefundRequest.self, forKey: .refundRequest)
-        self.voterInfo = try nested.decode(VoterInfo.self, forKey: .voterInfo)
-    }
+//    //todo: replace this by creating the container in IncommingMessage
+//    public init(from decoder: Decoder) throws {
+//
+//        let container = try decoder.container(keyedBy: CodingKeys.self)
+//        let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .account)
+//
+//        self.name = try nested.decode(String.self, forKey: .name)
+//        self.privileged = try nested.decode(Bool.self, forKey: .privileged)
+//        self.lastCodeUpdateTime = try nested.decode(String.self, forKey: .lastCodeUpdateTime)
+//        self.creationTime = try nested.decode(String.self, forKey: .creationTime)
+//        self.coreLiquidBalance = try nested.decode(String.self, forKey: .coreLiquidBalance)
+//
+//        self.ramQuota = try nested.decode(Int.self, forKey: .ramQuota)
+//        self.ramUsage = try nested.decode(Int.self, forKey: .ramUsage)
+//
+//        self.netWeight = try nested.decode(Int.self, forKey: .netWeight)
+//        self.cpuWeight = try nested.decode(Int.self, forKey: .cpuWeight)
+//
+//        self.netLimit = try nested.decode(AccountResourceLimit.self, forKey: .netLimit)
+//        self.cpuLimit = try nested.decode(AccountResourceLimit.self, forKey: .cpuLimit)
+//
+//        self.permissions = try nested.decode([Permission].self, forKey: .permissions)
+//
+//        self.totalResources = try nested.decode(TotalResources.self, forKey: .totalResources)
+//
+//        self.selfDelegatedBandwidth = try nested.decode(DelegatedBandwidth.self, forKey: .selfDelegatedBandwidth)
+//        self.refundRequest = try nested.decodeIfPresent(RefundRequest.self, forKey: .refundRequest)
+//        self.voterInfo = try nested.decode(VoterInfo.self, forKey: .voterInfo)
+//    }
 }
 
 //todo: parse asset string to build the asset object

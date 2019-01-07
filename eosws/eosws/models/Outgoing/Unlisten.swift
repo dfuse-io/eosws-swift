@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public struct Unlisten: Encodable {
     public let reqID: String

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public struct GetChainInfo: Encodable {
     var request: OutgoingMessage!

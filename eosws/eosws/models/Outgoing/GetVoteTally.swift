@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public struct GetVoteTally: Encodable {
     var request: OutgoingMessage!

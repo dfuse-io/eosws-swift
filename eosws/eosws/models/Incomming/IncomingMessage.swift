@@ -10,7 +10,7 @@ import Foundation
 
 public enum MessageData {
     case tableSnapshot(TableSnapshot)
-    case tableDetla(TableDelta)
+    case tableDelta(TableDelta)
     case actionTrace(ActionTrace)
     case transactionLifecycle(TransactionLifecycle)
     case listening(Listening)
@@ -43,29 +43,44 @@ public struct IncomingMessage: Decodable {
         case "table_snapshot":
             let data = try container.decode(TableSnapshot.self, forKey: .data)
             self.data = MessageData.tableSnapshot(data)
+
         case "table_delta":
             let data = try container.decode(TableDelta.self, forKey: .data)
-            self.data = MessageData.tableDetla(data)
+            self.data = MessageData.tableDelta(data)
+
         case "action_trace":
             let data = try container.decode(ActionTrace.self, forKey: .data)
             self.data = MessageData.actionTrace(data)
+
         case "transaction_lifecycle":
-            let data = try container.decode(TransactionLifecycle.self, forKey: .data)
+            let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+            enum CodingKeys: String, CodingKey {
+                case lifecycle
+            }
+            let data = try nested.decode(TransactionLifecycle.self, forKey: CodingKeys.lifecycle)
             self.data = MessageData.transactionLifecycle(data)
+
         case "listening":
             let data = try container.decode(Listening.self, forKey: .data)
             self.data = MessageData.listening(data)
+
         case "price":
             let data = try container.decode(Price.self, forKey: .data)
             self.data = MessageData.price(data)
+
         case "head_info":
             let data = try container.decode(ChainInfo.self, forKey: .data)
             self.data = MessageData.chainInfo(data)
+
         case "account":
-            let data = try container.decode(Account.self, forKey: .data)
+            let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
+            enum CodingKeys: String, CodingKey {
+                case account
+            }
+            let data = try nested.decode(Account.self, forKey: CodingKeys.account)
             self.data = MessageData.account(data)
+
         case "vote_tally":
-            
             let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .data)
             enum CodingKeys: String, CodingKey {
                 case voteTally = "vote_tally"
@@ -76,6 +91,7 @@ public struct IncomingMessage: Decodable {
         case "error":
             let data = try container.decode(ErrorMessage.self, forKey: .data)
             self.data = MessageData.error(data)
+
         default:
             print("Warning: unknown incoming message [\(self.type)]")
         }

@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import SwiftWebSocket
 
 public class GetAccount: Encodable {
     let accountName: String
