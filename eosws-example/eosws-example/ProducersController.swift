@@ -33,7 +33,14 @@ class ProducersViewController: UIViewController {
             name: NSNotification.Name(rawValue: Context.Notification.tablesSnapshot.rawValue),
             object: nil
         )
-        
+
+        NotificationCenter.default.addObserver(
+            self, selector:
+            #selector(self.handleTableDelta(notification:)),
+            name: NSNotification.Name(rawValue: Context.Notification.tableDelta.rawValue),
+            object: nil
+        )
+
         fetchProducers()
     }
     
@@ -48,7 +55,7 @@ class ProducersViewController: UIViewController {
     }
     
     @objc func handleTableSnapshot(notification: Notification) {
-        print("Receive producers table snapshop")
+        print("Received producers table snapshop")
         let snapshop = notification.object as! TableSnapshot
         self.producers = []
         
@@ -69,6 +76,13 @@ class ProducersViewController: UIViewController {
 //        })
         self.tableView.reloadData()
     }
+    
+    @objc func handleTableDelta(notification: Notification) {
+        
+        let delta = notification.object as! TableDelta
+        print("Received table delta: \(delta)")
+    }
+
 }
 
 extension ProducersViewController:UITableViewDataSource {

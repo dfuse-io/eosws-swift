@@ -14,8 +14,8 @@ public struct Account: Decodable {
     public let privileged: Bool
     public let lastCodeUpdateTime: String
     public let creationTime: String
-    public let coreLiquidBalance: String
-
+    public let coreLiquidBalance: Asset
+    
     public let ramQuota: Int
     public let ramUsage: Int
     
@@ -29,10 +29,10 @@ public struct Account: Decodable {
     
     public let totalResources: TotalResources
     
-    public let selfDelegatedBandwidth: DelegatedBandwidth
+    public let delegatedBandwidth: DelegatedBandwidth
     public let refundRequest: RefundRequest?
     public let voterInfo: VoterInfo
-
+    
     
     enum CodingKeys: String, CodingKey {
         case name = "account_name"
@@ -52,48 +52,55 @@ public struct Account: Decodable {
         
         case permissions = "permissions"
         case totalResources = "total_resources"
-        case selfDelegatedBandwidth = "self_delegated_bandwidth"
+        case delegatedBandwidth = "self_delegated_bandwidth"
         case refundRequest = "refund_request"
         case voterInfo = "voter_info"
     }
-    
-//    //todo: replace this by creating the container in IncommingMessage
-//    public init(from decoder: Decoder) throws {
-//
-//        let container = try decoder.container(keyedBy: CodingKeys.self)
-//        let nested = try container.nestedContainer(keyedBy: CodingKeys.self, forKey: .account)
-//
-//        self.name = try nested.decode(String.self, forKey: .name)
-//        self.privileged = try nested.decode(Bool.self, forKey: .privileged)
-//        self.lastCodeUpdateTime = try nested.decode(String.self, forKey: .lastCodeUpdateTime)
-//        self.creationTime = try nested.decode(String.self, forKey: .creationTime)
-//        self.coreLiquidBalance = try nested.decode(String.self, forKey: .coreLiquidBalance)
-//
-//        self.ramQuota = try nested.decode(Int.self, forKey: .ramQuota)
-//        self.ramUsage = try nested.decode(Int.self, forKey: .ramUsage)
-//
-//        self.netWeight = try nested.decode(Int.self, forKey: .netWeight)
-//        self.cpuWeight = try nested.decode(Int.self, forKey: .cpuWeight)
-//
-//        self.netLimit = try nested.decode(AccountResourceLimit.self, forKey: .netLimit)
-//        self.cpuLimit = try nested.decode(AccountResourceLimit.self, forKey: .cpuLimit)
-//
-//        self.permissions = try nested.decode([Permission].self, forKey: .permissions)
-//
-//        self.totalResources = try nested.decode(TotalResources.self, forKey: .totalResources)
-//
-//        self.selfDelegatedBandwidth = try nested.decode(DelegatedBandwidth.self, forKey: .selfDelegatedBandwidth)
-//        self.refundRequest = try nested.decodeIfPresent(RefundRequest.self, forKey: .refundRequest)
-//        self.voterInfo = try nested.decode(VoterInfo.self, forKey: .voterInfo)
-//    }
 }
 
-//todo: parse asset string to build the asset object
-//public struct Asset: Decodable {
-//    public let amount: Int
-//    public let precision: Int
-//    public let symbol: String
-//}
+enum AssetError: Error {
+    case missingSymbol
+    case invalidAmount
+    case missingPrecision
+}
+public struct Asset: Decodable {
+    public let amount: Int
+    public let precision: Int
+    public let symbol: String
+    
+    
+    public init(from decoder: Decoder) throws {
+        let s = try decoder.singleValueContainer().decode(String.self)
+        
+        if s == "" || s == "0 "{
+            self.amount = 0
+            self.precision = 0
+            self.symbol = ""
+            return
+        }
+        
+        let assetParts = s.split(separator: " ")
+        
+        if assetParts.count < 2 {
+            throw AssetError.missingSymbol
+        }
+        self.symbol = String(assetParts[1])
+
+        let amountString = String(assetParts[0])
+        let amountParts = amountString.split(separator: ".")
+        if amountParts.count < 2 {
+            throw AssetError.missingPrecision
+        }
+        self.precision = amountParts[1].count
+
+        if let a = Double(amountString){
+            self.amount = Int(a * pow(10.0, Double(self.precision)))
+        }else{
+            throw AssetError.invalidAmount
+        }
+        
+    }
+}
 
 public struct AccountResourceLimit: Decodable  {
     public let used: Int
@@ -115,7 +122,7 @@ public struct Permission: Decodable {
 
 public struct Authority: Decodable {
     public let threshold: Int
-        public let keys: [KeyWeight]?
+    public let keys: [KeyWeight]?
     public let accounts: [PermissionLevelWeight]?
     public let waits: [WaitWeight]?
 }
@@ -146,7 +153,7 @@ public struct WaitWeight: Decodable {
 }
 
 public struct TotalResources: Decodable {
- 
+    
     public let owner: String
     public let netWeight: String
     public let cpuWeight: String
@@ -163,8 +170,8 @@ public struct TotalResources: Decodable {
 public struct DelegatedBandwidth: Decodable {
     public let from: String
     public let to: String
-    public let netWeight: String
-    public let cpuWeight: String
+    public let netWeight: Asset
+    public let cpuWeight: Asset
     
     enum CodingKeys: String, CodingKey {
         case from
@@ -173,6 +180,7 @@ public struct DelegatedBandwidth: Decodable {
         case cpuWeight = "cpu_weight"
     }
 }
+
 
 public struct RefundRequest: Decodable {
     public let owner: String
@@ -186,7 +194,7 @@ public struct RefundRequest: Decodable {
         case netAmount = "net_amount"
         case cpuAmount = "cpu_amount"
     }
-
+    
 }
 
 public struct VoterInfo: Decodable {

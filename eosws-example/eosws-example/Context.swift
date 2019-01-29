@@ -22,6 +22,9 @@ class Context {
         case transactionLifecycle
         case listening
         case price
+        case chainInfo
+        case account
+        case voteTally
         case error
     }
 
@@ -35,20 +38,27 @@ class Context {
 
 
 extension Context: EOSWSDelegate {
-    func messageReveiced(msgData: MessageData) {
+    func messageReceived(msgData: MessageData) {
         
         switch msgData {
         case .actionTrace(let actionTrace):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.actionTrace.rawValue), object:actionTrace)
         case .tableSnapshot(let tableSnapshat):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.tablesSnapshot.rawValue), object:tableSnapshat)
-        case .tableDetla(let tableDelta):
+        case .tableDelta(let tableDelta):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.tableDelta.rawValue), object:tableDelta)
         case .transactionLifecycle(let transactionLifecycle):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.transactionLifecycle.rawValue), object:transactionLifecycle)
         case .listening(let listening):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.listening.rawValue), object:listening)
-            case .price
+        case .chainInfo(let chainInfo):
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.chainInfo.rawValue), object:chainInfo)
+        case .price(let price):
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.price.rawValue), object:price)
+        case .account(let account):
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.account.rawValue), object:account)
+        case .voteTally(let voteTally):
+            NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.voteTally.rawValue), object:voteTally)
         case .error(let err):
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: Notification.error.rawValue), object:err)
         }

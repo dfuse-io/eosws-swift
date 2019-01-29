@@ -39,6 +39,41 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		6304784821E8D0930001C17E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C330B4961FDE93AB005AEECC;
+			remoteInfo = "CatCrypto-iOS";
+		};
+		6304784A21E8D0930001C17E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3E273731FE4259D0026655E;
+			remoteInfo = "CatCrypto-macOS";
+		};
+		6304784C21E8D0930001C17E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3945E851FE3CBAE009A203D;
+			remoteInfo = "CatCrypto-tvOS";
+		};
+		6304784E21E8D0930001C17E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C3945EAD1FE3CE48009A203D;
+			remoteInfo = "CatCrypto-watchOS";
+		};
+		6304785021E8D0930001C17E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = C328B7921FF4DC4900943D75;
+			remoteInfo = "CatCrypto-iOSTests";
+		};
 		63C7ECDC219603560027E7B0 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 63C7ECC8219603560027E7B0 /* Project object */;
@@ -49,6 +84,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6304784021E8D0930001C17E /* CatCrypto.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = CatCrypto.xcodeproj; path = ../../eosm/eosm/Carthage/Checkouts/CatCrypto/CatCrypto.xcodeproj; sourceTree = "<group>"; };
 		6356A1F921DFBFAF00196095 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		6358EFF72199A4E80076BF47 /* GetActionTraces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetActionTraces.swift; sourceTree = "<group>"; };
 		6358EFFA2199A7BD0076BF47 /* Table.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Table.swift; sourceTree = "<group>"; };
@@ -100,9 +136,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6304784121E8D0930001C17E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				6304784921E8D0930001C17E /* CatCrypto.framework */,
+				6304784B21E8D0930001C17E /* CatCrypto.framework */,
+				6304784D21E8D0930001C17E /* CatCrypto.framework */,
+				6304784F21E8D0930001C17E /* CatCrypto.framework */,
+				6304785121E8D0930001C17E /* CatCrypto-iOSTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		63C7ECC7219603560027E7B0 = {
 			isa = PBXGroup;
 			children = (
+				6304784021E8D0930001C17E /* CatCrypto.xcodeproj */,
 				63CE252821DFBDC6006705CE /* SwiftWebSocket */,
 				63C7ECD3219603560027E7B0 /* eosws */,
 				63C7ECDE219603560027E7B0 /* eoswsTests */,
@@ -278,6 +327,12 @@
 			mainGroup = 63C7ECC7219603560027E7B0;
 			productRefGroup = 63C7ECD2219603560027E7B0 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 6304784121E8D0930001C17E /* Products */;
+					ProjectRef = 6304784021E8D0930001C17E /* CatCrypto.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				63C7ECD0219603560027E7B0 /* eosws */,
@@ -285,6 +340,44 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		6304784921E8D0930001C17E /* CatCrypto.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CatCrypto.framework;
+			remoteRef = 6304784821E8D0930001C17E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6304784B21E8D0930001C17E /* CatCrypto.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CatCrypto.framework;
+			remoteRef = 6304784A21E8D0930001C17E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6304784D21E8D0930001C17E /* CatCrypto.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CatCrypto.framework;
+			remoteRef = 6304784C21E8D0930001C17E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6304784F21E8D0930001C17E /* CatCrypto.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = CatCrypto.framework;
+			remoteRef = 6304784E21E8D0930001C17E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		6304785121E8D0930001C17E /* CatCrypto-iOSTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = "CatCrypto-iOSTests.xctest";
+			remoteRef = 6304785021E8D0930001C17E /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		63C7ECCF219603560027E7B0 /* Resources */ = {
