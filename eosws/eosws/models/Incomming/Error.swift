@@ -11,5 +11,11 @@ import Foundation
 public struct ErrorMessage: Decodable {
     public let code: String
     public let message: String
-    public let details: JSONValue
+    public let traceID: String
+//    public let details: JSONValue
+    
+    enum CodingKeys: String, CodingKey {
+        case code, message
+        case traceID = "trace_id"
+    }
 }

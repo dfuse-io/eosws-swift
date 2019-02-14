@@ -53,7 +53,7 @@ public class EOSWS {
         }
         ws.event.message = { message in
             if let text = message as? String {
-//                print("eosws: Received message: \(text)")
+                print("eosws: Received message: \(text)")
                 if let data = text.data(using: String.Encoding.utf8) {
                     do {
                         let message = try JSONDecoder().decode(IncomingMessage.self, from: data)
