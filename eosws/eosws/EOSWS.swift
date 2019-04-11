@@ -98,9 +98,6 @@ extension EOSWS {
 
 
     func get<T: Decodable>(with queryString: String, objectType: T.Type, completion: @escaping (Result<T>) -> Void) {
-
-        let urlString = "\(self.restEndpoint)\(queryString)" 
-
         guard let url = URL(string: self.restEndpoint) else {
             completion(Result.failure(.invalidURL(url: self.restEndpoint)))
             return
